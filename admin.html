@@ -1,18 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz Admin - Add Questions</title>
-    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="admin-styles.css" />
 </head>
 <body>
     <div class="container">
         <h1>Quiz Admin Panel</h1>
+
         <div class="navigation">
             <a href="index.html" class="nav-button">Back to Quiz</a>
         </div>
-        
+
+        <!-- Import from file section -->
+        <div class="admin-section">
+            <h2>Import Questions from File</h2>
+            <p>You can import JSON, CSV, Excel (.xlsx/.xls), Word (.docx), or PDF files. Choose whether to merge with or replace the current list.</p>
+
+            <div class="form-group">
+                <label for="import-file">Choose file (.json, .csv, .xlsx, .xls, .docx, .pdf):</label>
+                <input id="import-file" type="file" accept=".json,.csv,.xlsx,.xls,.docx,.pdf" />
+            </div>
+
+            <div class="form-group">
+                <label for="import-mode">Import mode:</label>
+                <select id="import-mode">
+                    <option value="merge">Merge with existing</option>
+                    <option value="replace">Replace existing</option>
+                </select>
+            </div>
+
+            <button id="import-questions-btn">Import Questions</button>
+
+            <div id="import-status" style="margin-top:10px;"></div>
+
+            <div style="margin-top:16px;">
+                <strong>Templates:</strong>
+                <button id="download-json-template">Download JSON template</button>
+                <button id="download-csv-template">Download CSV template</button>
+            </div>
+
+            <div style="margin-top:12px;">
+                <details>
+                    <summary>Expected formats</summary>
+                    <div style="margin-top:10px;">
+                        <p><strong>JSON:</strong> Either a plain array or an object with a <code>quizQuestions</code> array.</p>
+<pre><code>[
+  {
+    "question": "What is 2 + 2?",
+    "options": ["3","4","5","6"],
+    "correctAnswer": 1,
+    "explanation": "2 + 2 equals 4."
+  }
+]
+</code></pre>
+<pre><code>{
+  "quizQuestions": [
+    {
+      "question": "What is 2 + 2?",
+      "options": ["3","4","5","6"],
+      "correctAnswer": 1,
+      "explanation": "2 + 2 equals 4."
+    }
+  ]
+}
+</code></pre>
+
+                        <p><strong>CSV / Excel:</strong> Header row required:</p>
+                        <code>question,option1,option2,option3,option4,correctAnswer,explanation</code>
+<pre><code>question,option1,option2,option3,option4,correctAnswer,explanation
+"What is 2 + 2?",3,4,5,6,2,"2 + 2 equals 4."
+</code></pre>
+                        <p>Note: <code>correctAnswer</code> can be 0-3 (0-based) or 1-4 (1-based). We normalize to 0-based.</p>
+
+                        <p><strong>DOCX/PDF (text format):</strong> Use this pattern per question:</p>
+<pre><code>Q: What is 2 + 2?
+A1: 3
+A2: 4
+A3: 5
+A4: 6
+Answer: 2
+Explanation: 2 + 2 equals 4.
+</code></pre>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Add New Question -->
         <div class="admin-section">
             <h2>Add New Question</h2>
             <form id="question-form">
@@ -20,29 +97,29 @@
                     <label for="question">Question:</label>
                     <textarea id="question" required></textarea>
                 </div>
-                
+
                 <div class="options-container">
                     <div class="form-group">
                         <label for="option1">Option 1:</label>
-                        <input type="text" id="option1" required>
+                        <input type="text" id="option1" required />
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="option2">Option 2:</label>
-                        <input type="text" id="option2" required>
+                        <input type="text" id="option2" required />
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="option3">Option 3:</label>
-                        <input type="text" id="option3" required>
+                        <input type="text" id="option3" required />
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="option4">Option 4:</label>
-                        <input type="text" id="option4" required>
+                        <input type="text" id="option4" required />
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="correct-answer">Correct Answer:</label>
                     <select id="correct-answer" required>
@@ -52,16 +129,17 @@
                         <option value="3">Option 4</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="explanation">Explanation:</label>
                     <textarea id="explanation" required></textarea>
                 </div>
-                
+
                 <button type="submit" id="add-question">Add Question</button>
             </form>
         </div>
-        
+
+        <!-- Current Questions -->
         <div class="admin-section">
             <h2>Current Questions</h2>
             <div id="questions-list"></div>
@@ -71,7 +149,17 @@
             </div>
         </div>
     </div>
-    
+
+    <!-- Libraries for import functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        if (window['pdfjsLib']) {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
+    </script>
+
     <script src="questions.js"></script>
     <script src="admin.js"></script>
 </body>
