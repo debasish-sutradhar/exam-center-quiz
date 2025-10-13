@@ -75,12 +75,12 @@
 </code></pre>
                         <p>Note: <code>correctAnswer</code> can be 0-3 (0-based) or 1-4 (1-based). We normalize to 0-based.</p>
 
-                        <p><strong>DOCX/PDF (text format):</strong> Use this pattern per question:</p>
-<pre><code>Q: What is 2 + 2?
-A1: 3
-A2: 4
-A3: 5
-A4: 6
+                        <p><strong>DOCX/PDF text format:</strong> Use blocks separated by a blank line with these labels:</p>
+<pre><code>Question: What is 2 + 2?
+1) 3
+2) 4
+3) 5
+4) 6
 Answer: 2
 Explanation: 2 + 2 equals 4.
 </code></pre>
@@ -150,15 +150,15 @@ Explanation: 2 + 2 equals 4.
         </div>
     </div>
 
-    <!-- Libraries for import functionality -->
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- External libs for import support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script>
-        if (window['pdfjsLib']) {
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-        }
+      if (window.pdfjsLib) {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+      }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
 
     <script src="questions.js"></script>
     <script src="admin.js"></script>
