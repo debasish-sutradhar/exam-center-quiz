@@ -4,12 +4,15 @@ let timer;
 let secondsLeft = 30; // 30 seconds timer
 let quizStarted = false;
 let selectedAnswers = []; // For tracking multi-select answers
+let startTimeString = ''; // To store the quiz start time
+let answeredQuestions = 0; // Track number of questions answered
 
 const STORAGE_KEY = 'examCenterQuestions';
 
-// Timestamp display - update every second
-function updateTimestamp() {
+// Formatted timestamp function - returns in exactly YYYY-MM-DD HH:MM:SS format
+function getFormattedTimestamp() {
     const now = new Date();
+    
     const year = now.getUTCFullYear();
     const month = String(now.getUTCMonth() + 1).padStart(2, '0');
     const day = String(now.getUTCDate()).padStart(2, '0');
@@ -17,7 +20,12 @@ function updateTimestamp() {
     const minutes = String(now.getUTCMinutes()).padStart(2, '0');
     const seconds = String(now.getUTCSeconds()).padStart(2, '0');
     
-    const timestamp = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
+// Update timestamp display
+function updateTimestamp() {
+    const timestamp = getFormattedTimestamp();
     document.getElementById('timestamp').textContent = `UTC: ${timestamp}`;
 }
 
@@ -51,10 +59,17 @@ const totalQuestionsElement = document.getElementById('total-questions');
 const timerElement = document.getElementById('timer');
 const quizContainer = document.getElementById('quiz-container');
 const questionProgress = document.getElementById('question-progress');
+const quizStats = document.getElementById('quiz-stats');
+const startTimeElement = document.getElementById('start-time');
+const answeredCountElement = document.getElementById('answered-count');
+const totalCountElement = document.getElementById('total-count');
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
-    // Set up timestamp display
+    // Set user name
+    document.getElementById('user-info').textContent = 'User: debasish-sutradhar';
+    
+    // Start the timestamp update
     updateTimestamp();
     setInterval(updateTimestamp, 1000);
 });
@@ -62,10 +77,25 @@ startButton.addEventListener('click', startQuiz);
 nextButton.addEventListener('click', nextQuestion);
 restartButton.addEventListener('click', restartQuiz);
 
+// Update the stats display
+function updateStats() {
+    answeredCountElement.textContent = answeredQuestions;
+    totalCountElement.textContent = totalQuestions;
+}
+
 function startQuiz() {
     quizStarted = true;
     currentQuestionIndex = 0;
     score = 0;
+    answeredQuestions = 0;
+    
+    // Record start time and display it
+    startTimeString = getFormattedTimestamp();
+    startTimeElement.textContent = `Started: ${startTimeString}`;
+    
+    // Show quiz stats
+    quizStats.classList.remove('hidden');
+    updateStats();
 
     startButton.classList.add('hidden');
     resultsContainer.classList.add('hidden');
@@ -214,6 +244,10 @@ function selectOption(e) {
     const selectedIndex = parseInt(selectedOption.dataset.index);
     const currentQuestion = QUESTIONS[currentQuestionIndex];
 
+    // Increment answered question count
+    answeredQuestions++;
+    updateStats();
+
     // Disable all options
     const options = document.querySelectorAll('.option');
     options.forEach(option => {
@@ -263,6 +297,10 @@ function toggleMultiSelectOption(e) {
 
 function submitMultiSelectAnswers() {
     clearInterval(timer);
+    
+    // Increment answered question count
+    answeredQuestions++;
+    updateStats();
     
     const currentQuestion = QUESTIONS[currentQuestionIndex];
     const correctAnswers = currentQuestion.correctAnswer;
