@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Center Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Exam Center Quiz</h1>
+        
+        <div id="quiz-container">
+            <div id="timer-container">
+                <div id="timer">45</div>
+                <div id="timer-text">seconds remaining</div>
+            </div>
+            
+            <div id="question-container">
+                <h2 id="question-text">Question appears here</h2>
+                <div id="options-container">
+                    <!-- Options will be dynamically inserted here -->
+                </div>
+            </div>
+            
+            <div id="explanation-container" class="hidden">
+                <h3>Explanation</h3>
+                <p id="explanation-text"></p>
+                <button id="next-button">Next Question</button>
+            </div>
+            
+            <div id="results-container" class="hidden">
+                <h2>Quiz Completed</h2>
+                <p>Your score: <span id="score">0</span>/<span id="total-questions">0</span></p>
+                <button id="restart-button">Restart Quiz</button>
+            </div>
+            
+            <button id="start-button">Start Quiz</button>
+        </div>
+    </div>
+    
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
