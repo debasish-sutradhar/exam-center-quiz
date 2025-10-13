@@ -1,7 +1,7 @@
 let currentQuestionIndex = 0;
 let score = 0;
 let timer;
-let secondsLeft = 45;
+let secondsLeft = 30; // Timer is now 30 seconds
 let quizStarted = false;
 
 const STORAGE_KEY = 'examCenterQuestions';
@@ -79,7 +79,7 @@ function loadQuestion() {
 
 function resetState() {
     clearInterval(timer);
-    secondsLeft = 45;
+    secondsLeft = 30; // Reset to 30 seconds for each question
     timerElement.textContent = secondsLeft;
     timerElement.className = '';
 
@@ -98,8 +98,8 @@ function startTimer() {
         secondsLeft--;
         timerElement.textContent = secondsLeft;
 
-        // Warning at 15 seconds
-        if (secondsLeft <= 15 && secondsLeft > 5) {
+        // Warning at 10 seconds
+        if (secondsLeft <= 10 && secondsLeft > 5) {
             timerElement.className = 'warning';
         }
 
@@ -154,13 +154,23 @@ function selectOption(e) {
     if (selectedIndex === currentQuestion.correctAnswer) {
         selectedOption.classList.add('selected');
         score++;
+
+        // Show explanation
+        explanationText.textContent = currentQuestion.explanation;
+        explanationContainer.classList.remove('hidden');
+
+        // Automatically go to next question after 1 second
+        setTimeout(() => {
+            currentQuestionIndex++;
+            loadQuestion();
+        }, 1000);
     } else {
         selectedOption.classList.add('incorrect');
+        // Show explanation
+        explanationText.textContent = currentQuestion.explanation;
+        explanationContainer.classList.remove('hidden');
+        // User can manually click "Next Question" to proceed
     }
-
-    // Show explanation
-    explanationText.textContent = currentQuestion.explanation;
-    explanationContainer.classList.remove('hidden');
 }
 
 function nextQuestion() {
