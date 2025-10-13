@@ -5,17 +5,21 @@ let secondsLeft = 45;
 let quizStarted = false;
 
 const STORAGE_KEY = 'examCenterQuestions';
-// Prefer questions saved from Admin (localStorage), fallback to questions.js
-let questions = (function () {
+
+// Determine questions source: prefer imported (localStorage), else questions.js
+function getQuestions() {
     try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) {
-            const arr = JSON.parse(saved);
-            if (Array.isArray(arr) && arr.length) return arr;
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed) && parsed.length) return parsed;
         }
-    } catch (e) {}
-    return typeof quizQuestions !== 'undefined' ? quizQuestions : [];
-})();
+    } catch (_) {}
+    if (typeof quizQuestions !== 'undefined' && Array.isArray(quizQuestions)) return quizQuestions;
+    return [];
+}
+
+const QUESTIONS = getQuestions();
 
 // DOM Elements
 const startButton = document.getElementById('start-button');
@@ -36,16 +40,6 @@ startButton.addEventListener('click', startQuiz);
 nextButton.addEventListener('click', nextQuestion);
 restartButton.addEventListener('click', restartQuiz);
 
-defaultState();
-
-function defaultState(){
-    // If no questions present, show a helper message
-    if (!questions.length) {
-        questionText.textContent = 'No questions found. Please add questions via Admin Panel.';
-        startButton.disabled = true;
-    }
-}
-
 function startQuiz() {
     quizStarted = true;
     currentQuestionIndex = 0;
@@ -54,19 +48,19 @@ function startQuiz() {
     startButton.classList.add('hidden');
     resultsContainer.classList.add('hidden');
 
-    totalQuestionsElement.textContent = questions.length;
+    totalQuestionsElement.textContent = QUESTIONS.length;
     loadQuestion();
 }
 
 function loadQuestion() {
     resetState();
 
-    if (currentQuestionIndex >= questions.length) {
+    if (currentQuestionIndex >= QUESTIONS.length) {
         showResults();
         return;
     }
 
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = QUESTIONS[currentQuestionIndex];
     questionText.textContent = currentQuestion.question;
 
     // Create options
@@ -122,7 +116,7 @@ function startTimer() {
 }
 
 function timeUp() {
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = QUESTIONS[currentQuestionIndex];
 
     // Disable all options
     const options = document.querySelectorAll('.option');
@@ -144,7 +138,7 @@ function selectOption(e) {
 
     const selectedOption = e.target;
     const selectedIndex = parseInt(selectedOption.dataset.index);
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = QUESTIONS[currentQuestionIndex];
 
     // Disable all options
     const options = document.querySelectorAll('.option');
@@ -176,7 +170,7 @@ function nextQuestion() {
 
 function showResults() {
     scoreElement.textContent = score;
-    totalQuestionsElement.textContent = questions.length;
+    totalQuestionsElement.textContent = QUESTIONS.length;
     resultsContainer.classList.remove('hidden');
 }
 
