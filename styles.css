@@ -25,6 +25,30 @@ h1 {
     color: #333;
 }
 
+/* nav for admin link */
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.nav-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #388e3c;
+}
+
 #timer-container {
     text-align: center;
     margin-bottom: 20px;
@@ -46,25 +70,13 @@ h1 {
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-#question-container {
-    margin-bottom: 30px;
-}
-
-#question-text {
-    margin-bottom: 20px;
-    color: #333;
-}
+#question-container { margin-bottom: 30px; }
+#question-text { margin-bottom: 20px; color: #333; }
 
 .option {
     padding: 15px;
@@ -76,24 +88,10 @@ h1 {
     transition: background-color 0.3s;
 }
 
-.option:hover {
-    background-color: #e0e0e0;
-}
-
-.option.selected {
-    background-color: #4caf50;
-    color: white;
-}
-
-.option.incorrect {
-    background-color: #f44336;
-    color: white;
-}
-
-.option.correct {
-    background-color: #4caf50;
-    color: white;
-}
+.option:hover { background-color: #e0e0e0; }
+.option.selected { background-color: #4caf50; color: white; }
+.option.incorrect { background-color: #f44336; color: white; }
+.option.correct { background-color: #4caf50; color: white; }
 
 #explanation-container {
     background-color: #f9f9f9;
@@ -102,9 +100,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-.hidden {
-    display: none;
-}
+.hidden { display: none; }
 
 button {
     background-color: #4caf50;
@@ -119,10 +115,25 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #388e3c;
+button:hover { background-color: #388e3c; }
+
+#results-container { text-align: center; }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container { padding: 15px; }
+    h1 { font-size: 24px; margin-bottom: 20px; }
+    #timer { font-size: 28px; }
+    #question-text { font-size: 18px; }
+    .option { padding: 12px; font-size: 16px; }
+    button { padding: 10px 15px; font-size: 14px; }
+    #explanation-container { padding: 10px; }
 }
 
-#results-container {
-    text-align: center;
+@media (max-width: 480px) {
+    .container { padding: 10px; }
+    h1 { font-size: 20px; margin-bottom: 15px; }
+    #timer { font-size: 24px; }
+    #question-text { font-size: 16px; }
+    .option { padding: 10px; font-size: 14px; }
 }
