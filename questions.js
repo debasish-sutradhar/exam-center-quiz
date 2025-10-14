@@ -24,7 +24,7 @@ const quizQuestions = [
     "explanation": "A SQL injection (SQLi) attack occurs when an attacker inserts malicious Structured Query Language (SQL) code into a data input field (like a login form or search bar). If the application does not properly validate or sanitize this input, the malicious code is executed by the backend database, allowing the attacker to view, modify, delete, or manipulate sensitive data."
   },
   {
-    "question": "A company prevented direct access from the database administrators’ workstations to the network segment that contains database servers. Which of the following should a database administrator use to access the database servers?",
+    "question": "A company prevented direct access from the database administrators' workstations to the network segment that contains database servers. Which of the following should a database administrator use to access the database servers?",
     "options": ["Jump server", "RADIUS", "HSM", "Load balancer"],
     "correctAnswer": 0,
     "explanation": "A jump server (also known as a jump box or bastion host) is a hardened and monitored server used to access and manage devices in a separate, secure security zone. It acts as a controlled intermediary, preventing direct access from less secure networks to critical assets like database servers. The administrator connects to the jump server first, and from there, connects to the database servers."
@@ -48,7 +48,7 @@ const quizQuestions = [
     "explanation": "The Rules of Engagement (RoE) is a document established before a penetration test begins. It formally defines the scope, objectives, timeline, and boundaries of the test. It specifies what is in scope (e.g., target IP addresses), what is out of scope, what techniques are allowed, and the communication plan, ensuring the test is conducted legally and effectively."
   },
   {
-    "question": "An administrator notices that several users are logging in from suspicious IP addresses. After speaking with the users, the administrator determines that the employees were not logging in from those IP addresses and resets the affected users’ passwords. Which of the following should the administrator implement to prevent this type of attack from succeeding in the future?",
+    "question": "An administrator notices that several users are logging in from suspicious IP addresses. After speaking with the users, the administrator determines that the employees were not logging in from those IP addresses and resets the affected users' passwords. Which of the following should the administrator implement to prevent this type of attack from succeeding in the future?",
     "options": ["Multifactor authentication", "Permissions assignment", "Access management", "Password complexity"],
     "correctAnswer": 0,
     "explanation": "This scenario indicates that user passwords have been compromised. While strong passwords help, a compromised password can still be used by an attacker. Multifactor Authentication (MFA) adds another layer of security by requiring a second factor for verification (e.g., a code from a mobile app, a fingerprint). Even if an attacker has the password, they cannot log in without the second factor, thus preventing this type of unauthorized access."
@@ -105,19 +105,19 @@ const quizQuestions = [
     "question": "Which of the following must be considered when designing a high-availability network? (Select two).",
     "options": ["Ease of recovery", "Ability to patch", "Physical isolation", "Responsiveness", "Attack surface", "Extensible authentication"],
     "correctAnswer": [0, 4],
-    "explanation": "When designing for high availability, the primary goal is to minimize downtime.\n * Ease of recovery: The ability to restore service quickly after a failure is essential. This is achieved through mechanisms like redundancy, failover, and backups.\n * Attack surface: A large attack surface presents more opportunities for attackers to cause a disruption or outage. Reducing the attack surface (e.g., by disabling unused ports and services) improves the overall security and resilience of the network, contributing to higher availability."
+    "explanation": "When designing for high availability, the primary goal is to minimize downtime.\n\nEase of recovery: The ability to restore service quickly after a failure is essential. This is achieved through mechanisms like redundancy, failover, and backups.\n\nAttack surface: A large attack surface presents more opportunities for attackers to cause a disruption or outage. Reducing the attack surface (e.g., by disabling unused ports and services) improves the overall security and resilience of the network, contributing to higher availability."
   },
   {
-    "question": "A systems administrator is working on a solution with the following requirements:\n * Provide a secure zone.\n * Enforce a company-wide access control policy.\n * Reduce the scope of threats.\nWhich of the following is the systems administrator setting up?",
+    "question": "A systems administrator is working on a solution with the following requirements:\n\nProvide a secure zone.\n\nEnforce a company-wide access control policy.\n\nReduce the scope of threats.\n\nWhich of the following is the systems administrator setting up?",
     "options": ["Zero Trust", "AAA", "Non-repudiation", "CIA"],
     "correctAnswer": 0,
-    "explanation": "A Zero Trust architecture is a security model based on the principle of \"never trust, always verify.\" It treats all users and devices as untrusted, regardless of their location. It meets the requirements by:\n * Providing secure zones through micro-segmentation.\n * Enforcing strict, granular access control policies for every request.\n * Reducing the scope of threats by preventing lateral movement within the network."
+    "explanation": "A Zero Trust architecture is a security model based on the principle of \"never trust, always verify.\" It treats all users and devices as untrusted, regardless of their location. It meets the requirements by:\n\nProviding secure zones through micro-segmentation.\n\nEnforcing strict, granular access control policies for every request.\n\nReducing the scope of threats by preventing lateral movement within the network."
   },
   {
     "question": "An employee receives a text message that appears to have been sent by the payroll department and is asking for credential verification. Which of the following social engineering techniques are being attempted? (Choose two.)",
     "options": ["Typosquatting", "Phishing", "Impersonation", "Vishing", "Smishing", "Misinformation"],
     "correctAnswer": [2, 4],
-    "explanation": " * Smishing: This is a specific type of phishing attack that uses SMS (text messages) as the delivery method. The scenario explicitly describes a fraudulent text message.\n * Impersonation: The attacker is pretending to be someone they are not—in this case, the payroll department—to gain the employee's trust and trick them into providing information."
+    "explanation": "Smishing: This is a specific type of phishing attack that uses SMS (text messages) as the delivery method. The scenario explicitly describes a fraudulent text message.\n\nImpersonation: The attacker is pretending to be someone they are not—in this case, the payroll department—to gain the employee's trust and trick them into providing information."
   },
   {
     "question": "After a security incident, a systems administrator asks the company to buy a NAC platform. Which of the following attack surfaces is the systems administrator trying to protect?",
@@ -137,7 +137,7 @@ const quizQuestions = [
     "explanation": "A legal hold (or litigation hold) is a formal process that requires an organization to preserve all data that may be relevant to a legal case. The hold overrides normal data retention and deletion policies. Therefore, the security team must retain any communications related to the security breach until further notice from the legal department, which will lift the hold when it is no longer necessary."
   },
   {
-    "question": "A company’s legal department drafted sensitive documents in a SaaS application and wants to ensure the documents cannot be accessed by individuals in high-risk countries. Which of the following is the most effective way to limit this access?",
+    "question": "A company's legal department drafted sensitive documents in a SaaS application and wants to ensure the documents cannot be accessed by individuals in high-risk countries. Which of the following is the most effective way to limit this access?",
     "options": ["Data masking", "Encryption", "Geolocation policy", "Data sovereignty regulation"],
     "correctAnswer": 2,
     "explanation": "A geolocation policy is the most direct and effective way to control access based on a user's physical location. These policies use the user's IP address to determine their country of origin and can be configured to block access attempts from specified high-risk countries, thereby preventing individuals in those locations from accessing the sensitive documents."
@@ -154,7 +154,7 @@ const quizQuestions = [
     "explanation": "Business Email Compromise (BEC) is a type of attack where a cybercriminal impersonates a company executive or trusted partner to trick an employee into making unauthorized payments or providing sensitive information. The scenario involving an email that appears to be from an executive requesting gift cards is a classic example of a BEC attack. Option B is ransomware, while C and D are other forms of phishing."
   },
   {
-    "question": "A company is expanding its threat surface program and allowing individuals to security test the company’s internet-facing application. The company will compensate researchers based on the vulnerabilities discovered. Which of the following best describes the program the company is setting up?",
+    "question": "A company is expanding its threat surface program and allowing individuals to security test the company's internet-facing application. The company will compensate researchers based on the vulnerabilities discovered. Which of the following best describes the program the company is setting up?",
     "options": ["Open-source intelligence", "Bug bounty", "Red team", "Penetration testing"],
     "correctAnswer": 1,
     "explanation": "A bug bounty program is a crowdsourced security initiative that rewards individuals (often called security researchers or ethical hackers) for discovering and reporting software vulnerabilities. This perfectly describes the scenario where a company compensates researchers for finding vulnerabilities in its application."
@@ -166,13 +166,13 @@ const quizQuestions = [
     "explanation": "An Intrusion Prevention System (IPS) is the best solution here because it can both monitor and actively block threats. Since the attacks are \"well-known exploits,\" an IPS can use predefined signatures to identify the malicious traffic patterns associated with these exploits and drop the packets in real-time before they can harm the target systems. An IDS would only detect and alert, not block."
   },
   {
-    "question": "A security analyst is reviewing alerts in the SIEM related to potential malicious network traffic coming from an employee’s corporate laptop. The security analyst has determined that additional data about the executable running on the machine is necessary to continue the investigation. Which of the following logs should the analyst use as a data source?",
+    "question": "A security analyst is reviewing alerts in the SIEM related to potential malicious network traffic coming from an employee's corporate laptop. The security analyst has determined that additional data about the executable running on the machine is necessary to continue the investigation. Which of the following logs should the analyst use as a data source?",
     "options": ["Application", "IPS/IDS", "Network", "Endpoint"],
     "correctAnswer": 3,
     "explanation": "To investigate an executable file running on a machine, the analyst needs data directly from that machine. Endpoint logs, typically collected by an Endpoint Detection and Response (EDR) tool, provide rich, detailed context about processes, file modifications, registry changes, and network connections originating from the device itself. This is the most direct source for investigating the behavior of a specific executable."
   },
   {
-    "question": "While troubleshooting a firewall configuration, a technician determines that a “deny any” policy should be added to the bottom of the ACL. The technician updates the policy, but the new policy causes several company servers to become unreachable. Which of the following actions would prevent this issue?",
+    "question": "While troubleshooting a firewall configuration, a technician determines that a \"deny any\" policy should be added to the bottom of the ACL. The technician updates the policy, but the new policy causes several company servers to become unreachable. Which of the following actions would prevent this issue?",
     "options": [
       "Documenting the new policy in a change request and submitting the request to change management",
       "Testing the policy in a non-production environment before enabling the policy in the production network",
@@ -207,7 +207,7 @@ const quizQuestions = [
     "explanation": "The Preparation phase is the first and most crucial phase of the incident response lifecycle. It involves all the proactive steps taken before an incident occurs to ensure the team is ready. This includes creating the incident response plan, assembling the team, providing training, and clearly defining the roles and responsibilities of each team member."
   },
   {
-    "question": "A security practitioner completes a vulnerability assessment on a company’s network and finds several vulnerabilities, which the operations team remediates. Which of the following should be done next?",
+    "question": "A security practitioner completes a vulnerability assessment on a company's network and finds several vulnerabilities, which the operations team remediates. Which of the following should be done next?",
     "options": ["Conduct an audit.", "Initiate a penetration test.", "Rescan the network.", "Submit a report."],
     "correctAnswer": 2,
     "explanation": "The vulnerability management process is cyclical: Scan -> Remediate -> Validate. After the operations team has applied patches or made configuration changes to fix the identified vulnerabilities, the next logical step is to rescan the network. This validation scan confirms that the remediation was successful and that no new vulnerabilities were introduced during the process."
@@ -222,7 +222,7 @@ const quizQuestions = [
     "question": "A company's marketing department collects, modifies, and stores sensitive customer data. The infrastructure team is responsible for securing the data while in transit and at rest. Which of the following data roles describes the customer?",
     "options": ["Processor", "Custodian", "Subject", "Owner"],
     "correctAnswer": 2,
-    "explanation": "In data privacy frameworks like GDPR, the data subject is the individual to whom the personal data relates. In this case, the customer whose data is being collected and processed is the data subject.\n * Data Owner/Controller: The company that determines the purpose of the data processing.\n * Data Processor: The marketing department, which processes data on behalf of the company.\n * Data Custodian: The infrastructure team, responsible for the technical security of the data."
+    "explanation": "In data privacy frameworks like GDPR, the data subject is the individual to whom the personal data relates. In this case, the customer whose data is being collected and processed is the data subject.\n\nData Owner/Controller: The company that determines the purpose of the data processing.\n\nData Processor: The marketing department, which processes data on behalf of the company.\n\nData Custodian: The infrastructure team, responsible for the technical security of the data."
   },
   {
     "question": "An organization recently updated its security policy to include the following statement: Regular expressions are included in source code to remove special characters such as $, |, ;, &, \\, and ? from variables set by forms in a web application. Which of the following best explains the security technique the organization adopted by making this addition to the policy?",
@@ -231,7 +231,7 @@ const quizQuestions = [
     "explanation": "The practice of checking, filtering, or sanitizing data received from a user is known as input validation. By removing potentially malicious special characters, the organization is cleaning the input to prevent various types of injection attacks, such as SQL injection or command injection, where these characters could be used to alter backend commands."
   },
   {
-    "question": "An organization’s internet-facing website was compromised when an attacker exploited a buffer overflow. Which of the following should the organization deploy to best protect against similar attacks in the future?",
+    "question": "An organization's internet-facing website was compromised when an attacker exploited a buffer overflow. Which of the following should the organization deploy to best protect against similar attacks in the future?",
     "options": ["NGFW", "WAF", "TLS", "SD-WAN"],
     "correctAnswer": 1,
     "explanation": "A Web Application Firewall (WAF) is specifically designed to protect web applications from common application-layer attacks. It inspects HTTP/S traffic and can detect and block attacks like buffer overflows, SQL injection, and cross-site scripting (XSS) before they reach the web server, making it the best defense for this scenario."
@@ -245,7 +245,7 @@ const quizQuestions = [
       "Access list outbound permit 10.50.10.25 32 0.0.0.0/0 port 53\nAccess list outbound deny 0.0.0.0/0 0.0.0.0/0 port 53"
     ],
     "correctAnswer": 3,
-    "explanation": "Firewall Access Control Lists (ACLs) are processed from top to bottom. To achieve the goal, you need two rules:\n * An explicit rule to permit DNS traffic from the specific server.\n * A rule to deny DNS traffic from all other internal sources.\nOption D correctly implements this logic:\n * Access list outbound permit 10.50.10.25 32 0.0.0.0/0 port 53: This rule allows traffic with a source IP of 10.50.10.25 (the /32 specifies a single host) to any destination on port 53 (DNS).\n * Access list outbound deny 0.0.0.0/0 0.0.0.0/0 port 53: This rule, placed after the permit rule, denies all other traffic from any source (0.0.0.0/0) to any destination on port 53."
+    "explanation": "Firewall Access Control Lists (ACLs) are processed from top to bottom. To achieve the goal, you need two rules:\n\nAn explicit rule to permit DNS traffic from the specific server.\n\nA rule to deny DNS traffic from all other internal sources.\n\nOption D correctly implements this logic:\n\nAccess list outbound permit 10.50.10.25 32 0.0.0.0/0 port 53: This rule allows traffic with a source IP of 10.50.10.25 (the /32 specifies a single host) to any destination on port 53 (DNS).\n\nAccess list outbound deny 0.0.0.0/0 0.0.0.0/0 port 53: This rule, placed after the permit rule, denies all other traffic from any source (0.0.0.0/0) to any destination on port 53."
   },
   {
     "question": "A security administrator is deploying a DLP solution to prevent the exfiltration of sensitive customer data. Which of the following should the administrator do first?",
@@ -274,7 +274,7 @@ const quizQuestions = [
     "question": "During the onboarding process, an employee needs to create a password for an intranet account. The password must include ten characters, numbers, and letters, and two special characters. Once the password is created, the company will grant the employee access to other company-owned websites based on the intranet profile. Which of the following access management concepts is the company most likely using to safeguard intranet accounts and grant access to multiple sites based on a user's intranet account? (Select two).",
     "options": ["Federation", "Identity proofing", "Password complexity", "Default password changes", "Password manager", "Open authentication"],
     "correctAnswer": [0, 2],
-    "explanation": " * Password complexity: The requirement for a specific length and mix of character types (letters, numbers, special characters) is a direct implementation of a password complexity policy.\n * Federation: The concept of using a single identity (the intranet account) to access multiple different services (other company websites) is known as identity federation, often implemented through Single Sign-On (SSO). It establishes a trust relationship between the systems, allowing one to handle authentication for the others."
+    "explanation": "Password complexity: The requirement for a specific length and mix of character types (letters, numbers, special characters) is a direct implementation of a password complexity policy.\n\nFederation: The concept of using a single identity (the intranet account) to access multiple different services (other company websites) is known as identity federation, often implemented through Single Sign-On (SSO). It establishes a trust relationship between the systems, allowing one to handle authentication for the others."
   },
   {
     "question": "A systems administrator wants to prevent users from being able to access data based on their responsibilities. The administrator also wants to apply the required access structure via a simplified format. Which of the following should the administrator apply to the site recovery resource group?",
@@ -283,7 +283,7 @@ const quizQuestions = [
     "explanation": "Role-Based Access Control (RBAC) is an access control model that grants permissions based on a user's role within an organization (e.g., \"Database Administrator,\" \"Help Desk Analyst,\" \"Sales Manager\"). This directly aligns with assigning access based on responsibilities and simplifies administration, as permissions are managed for roles rather than for individual users."
   },
   {
-    "question": "Which of the following roles, according to the shared responsibility model, is responsible for securing the company’s database in an IaaS model for a cloud environment?",
+    "question": "Which of the following roles, according to the shared responsibility model, is responsible for securing the company's database in an IaaS model for a cloud environment?",
     "options": ["Client", "Third-party vendor", "Cloud provider", "DBA"],
     "correctAnswer": 0,
     "explanation": "In an Infrastructure as a Service (IaaS) cloud model, the cloud provider is responsible for the security of the cloud (physical data centers, servers, networking). The client (customer) is responsible for security in the cloud. This includes securing the operating systems, applications, and data they deploy. Since the database is part of the application and data stack, its security is the responsibility of the client."
@@ -306,13 +306,13 @@ const quizQuestions = [
     "explanation": "Manually checking the security settings of multiple servers every day is impractical, time-consuming, and prone to error. Automation is the only feasible solution. Using automated tools such as configuration management systems (e.g., Puppet, Ansible) or File Integrity Monitoring (FIM) allows for consistent, daily checks against a secure baseline, with automatic alerts for any unauthorized modifications."
   },
   {
-    "question": "Which of the following vulnerabilities is associated with installing software outside of a manufacturer’s approved software repository?",
+    "question": "Which of the following vulnerabilities is associated with installing software outside of a manufacturer's approved software repository?",
     "options": ["Jailbreaking", "Memory injection", "Resource reuse", "Side loading"],
     "correctAnswer": 3,
     "explanation": "Side loading refers to the process of installing an application on a mobile device from an unofficial source, rather than the manufacturer's approved app store (like the Apple App Store or Google Play Store). This practice bypasses the security vetting process of the official stores, increasing the risk of installing malware or vulnerable applications."
   },
   {
-    "question": "Several employees received a fraudulent text message from someone claiming to be the Chief Executive Officer (CEO). The message stated:\n“I’m in an airport right now with no access to email. I need you to buy gift cards for employee recognition awards. Please send the gift cards to following email address.”\nWhich of the following are the best responses to this situation? (Choose two).",
+    "question": "Several employees received a fraudulent text message from someone claiming to be the Chief Executive Officer (CEO). The message stated:\n\"I'm in an airport right now with no access to email. I need you to buy gift cards for employee recognition awards. Please send the gift cards to following email address.\"\nWhich of the following are the best responses to this situation? (Choose two).",
     "options": [
       "Cancel current employee recognition gift cards.",
       "Add a smishing exercise to the annual company training.",
@@ -322,7 +322,7 @@ const quizQuestions = [
       "Implement mobile device management."
     ],
     "correctAnswer": [1, 2],
-    "explanation": "The best responses address both the immediate threat and long-term prevention.\n * Issue a general email warning to the company: This is the best immediate action to alert all employees about the ongoing scam, preventing others from falling victim.\n * Add a smishing exercise to the annual company training: This is the best long-term response. Since the attack was successful (or attempted), it highlights a gap in employee awareness. Training will help employees recognize and respond correctly to similar attacks in the future."
+    "explanation": "The best responses address both the immediate threat and long-term prevention.\n\nIssue a general email warning to the company: This is the best immediate action to alert all employees about the ongoing scam, preventing others from falling victim.\n\nAdd a smishing exercise to the annual company training: This is the best long-term response. Since the attack was successful (or attempted), it highlights a gap in employee awareness. Training will help employees recognize and respond correctly to similar attacks in the future."
   },
   {
     "question": "An organization is struggling with scaling issues on its VPN concentrator and internet circuit due to remote work. The organization is looking for a software solution that will allow it to reduce traffic on the VPN and internet circuit, while still providing encrypted tunnel access to the data center and monitoring of remote employee internet traffic. Which of the following will help achieve these objectives?",
@@ -366,3 +366,7 @@ const quizQuestions = [
     "explanation": "Log files are a prime example of a detective control. They do not prevent an attack from happening or correct the damage afterward. Instead, they record events as they occur, allowing an administrator to detect that an incident happened and investigate the details (like the source, timeline, and scope of the attack) after the fact."
   }
 ];
+
+// Set the timestamp and user login at the top
+// Current Date and Time (UTC): 2025-10-14 05:40:25
+// Current User's Login: debasish-sutradhar
