@@ -1,3 +1,12 @@
+// Add this to your script.js document ready function
+document.addEventListener('DOMContentLoaded', function() {
+    // Set fixed timestamp and username
+    document.getElementById('timestamp').textContent = 'UTC - YYYY-MM-DD HH:MM:SS formatted: 2025-10-15 03:35:08';
+    document.getElementById('user-info').textContent = 'User: debasish-sutradhar';
+    
+    // Don't start the timer update if you want to keep this exact time
+    // setInterval(updateTimestamp, 1000);
+});
 let currentQuestionIndex = 0;
 let score = 0;
 let timer;
