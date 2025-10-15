@@ -1,0 +1,60 @@
+name: Import Questions from pasted.txt
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'pasted.txt'
+  workflow_dispatch:
+
+jobs:
+  import-questions:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Check if pasted.txt has content
+        id: check-pasted
+        run: |
+          if [ -f pasted.txt ] && [ -s pasted.txt ]; then
+            # Check if file has non-comment, non-empty lines
+            if grep -qv '^[[:space:]]*\(#\|$\)' pasted.txt; then
+              echo "has_content=true" >> $GITHUB_OUTPUT
+            else
+              echo "has_content=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "has_content=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Import questions
+        if: steps.check-pasted.outputs.has_content == 'true'
+        run: |
+          node tools/merge-pasted-into-questions.js
+      
+      - name: Commit changes
+        if: steps.check-pasted.outputs.has_content == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Check if there are changes to commit
+          if git diff --quiet questions.js pasted.txt; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          git add questions.js pasted.txt
+          git commit -m "Auto-import questions from pasted.txt [skip ci]"
+          git push
