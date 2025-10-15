@@ -274,5 +274,98 @@ const quizQuestions = [
     "explanation": "When a third party handles the destruction of sensitive media, the company must obtain a Certificate of Destruction. This is a formal document that serves as an audit record, providing proof that the media was destroyed in a secure and compliant manner. It typically details what was destroyed, the method used, the date, and who performed the destruction."
   },
   {
-    "question": "During the onboarding process, an employee needs to create a passwor
-
+    "question": "During the onboarding process, an employee needs to create a password for an intranet account. The password must include ten characters, numbers, and letters, and two special characters. Once the password is created, the company will grant the employee access to other company-owned websites based on the intranet profile. Which of the following access management concepts is the company most likely using to safeguard intranet accounts and grant access to multiple sites based on a user's intranet account? (Select two).",
+    "options": ["Federation", "Identity proofing", "Password complexity", "Default password changes", "Password manager", "Open authentication"],
+    "correctAnswer": [0, 2],
+    "explanation": "Password complexity: The requirement for a specific length and mix of character types (letters, numbers, special characters) is a direct implementation of a password complexity policy.\n\nFederation: The concept of using a single identity (the intranet account) to access multiple different services (other company websites) is known as identity federation, often implemented through Single Sign-On (SSO). It establishes a trust relationship between the systems, allowing one to handle authentication for the others."
+  },
+  {
+    "question": "A systems administrator wants to prevent users from being able to access data based on their responsibilities. The administrator also wants to apply the required access structure via a simplified format. Which of the following should the administrator apply to the site recovery resource group?",
+    "options": ["RBAC", "ACL", "SAML", "GPO"],
+    "correctAnswer": 0,
+    "explanation": "Role-Based Access Control (RBAC) is an access control model that grants permissions based on a user's role within an organization (e.g., \"Database Administrator,\" \"Help Desk Analyst,\" \"Sales Manager\"). This directly aligns with assigning access based on responsibilities and simplifies administration, as permissions are managed for roles rather than for individual users."
+  },
+  {
+    "question": "Which of the following roles, according to the shared responsibility model, is responsible for securing the company's database in an IaaS model for a cloud environment?",
+    "options": ["Client", "Third-party vendor", "Cloud provider", "DBA"],
+    "correctAnswer": 0,
+    "explanation": "In an Infrastructure as a Service (IaaS) cloud model, the cloud provider is responsible for the security of the cloud (physical data centers, servers, networking). The client (customer) is responsible for security in the cloud. This includes securing the operating systems, applications, and data they deploy. Since the database is part of the application and data stack, its security is the responsibility of the client."
+  },
+  {
+    "question": "Which of the following is the most likely to be included as an element of communication in a security awareness program?",
+    "options": [
+      "Reporting phishing attempts or other suspicious activities",
+      "Detecting insider threats using anomalous behavior recognition",
+      "Verifying information when modifying wire transfer data",
+      "Performing social engineering as part of third-party penetration testing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A key component of any effective security awareness program is teaching employees what to do when they encounter a threat. This includes clear instructions on reporting phishing attempts or other suspicious activities to the appropriate security team. This empowers users to become an active part of the organization's defense. The other options are functions performed by the security or finance teams, not general awareness training topics."
+  },
+  {
+    "question": "Which of the following is the best way to consistently determine on a daily basis whether security settings on servers have been modified?",
+    "options": ["Automation", "Compliance checklist", "Attestation", "Manual audit"],
+    "correctAnswer": 0,
+    "explanation": "Manually checking the security settings of multiple servers every day is impractical, time-consuming, and prone to error. Automation is the only feasible solution. Using automated tools such as configuration management systems (e.g., Puppet, Ansible) or File Integrity Monitoring (FIM) allows for consistent, daily checks against a secure baseline, with automatic alerts for any unauthorized modifications."
+  },
+  {
+    "question": "Which of the following vulnerabilities is associated with installing software outside of a manufacturer's approved software repository?",
+    "options": ["Jailbreaking", "Memory injection", "Resource reuse", "Side loading"],
+    "correctAnswer": 3,
+    "explanation": "Side loading refers to the process of installing an application on a mobile device from an unofficial source, rather than the manufacturer's approved app store (like the Apple App Store or Google Play Store). This practice bypasses the security vetting process of the official stores, increasing the risk of installing malware or vulnerable applications."
+  },
+  {
+    "question": "Several employees received a fraudulent text message from someone claiming to be the Chief Executive Officer (CEO). The message stated:\n\"I'm in an airport right now with no access to email. I need you to buy gift cards for employee recognition awards. Please send the gift cards to following email address.\"\nWhich of the following are the best responses to this situation? (Choose two).",
+    "options": [
+      "Cancel current employee recognition gift cards.",
+      "Add a smishing exercise to the annual company training.",
+      "Issue a general email warning to the company.",
+      "Have the CEO change phone numbers.",
+      "Conduct a forensic investigation on the CEO's phone.",
+      "Implement mobile device management."
+    ],
+    "correctAnswer": [1, 2],
+    "explanation": "The best responses address both the immediate threat and long-term prevention.\n\nIssue a general email warning to the company: This is the best immediate action to alert all employees about the ongoing scam, preventing others from falling victim.\n\nAdd a smishing exercise to the annual company training: This is the best long-term response. Since the attack was successful (or attempted), it highlights a gap in employee awareness. Training will help employees recognize and respond correctly to similar attacks in the future."
+  },
+  {
+    "question": "An organization is struggling with scaling issues on its VPN concentrator and internet circuit due to remote work. The organization is looking for a software solution that will allow it to reduce traffic on the VPN and internet circuit, while still providing encrypted tunnel access to the data center and monitoring of remote employee internet traffic. Which of the following will help achieve these objectives?",
+    "options": [
+      "Deploying a SASE solution to remote employees",
+      "Building a load-balanced VPN solution with redundant internet",
+      "Purchasing a low-cost SD-WAN solution for VPN traffic",
+      "Using a cloud provider to create additional VPN concentrators"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A Secure Access Service Edge (SASE) solution is ideal for this scenario. SASE combines networking and security functions into a single cloud-delivered service. It allows for intelligent \"split-tunneling\" where only traffic destined for the corporate data center goes through the VPN tunnel, while general internet and SaaS traffic is routed directly to the internet. This significantly reduces the load on the VPN and corporate internet circuit. SASE also includes security services (like a Secure Web Gateway) to monitor and protect that direct-to-internet traffic."
+  },
+  {
+    "question": "An organization would like to store customer data on a separate part of the network that is not accessible to users on the main corporate network. Which of the following should the administrator use to accomplish this goal?",
+    "options": ["Segmentation", "Isolation", "Patching", "Encryption"],
+    "correctAnswer": 0,
+    "explanation": "Network segmentation is the practice of dividing a network into smaller, isolated sub-networks or segments. By placing the customer data servers in a separate segment and implementing firewall rules between that segment and the main corporate network, the administrator can strictly control traffic and prevent unauthorized access from corporate users."
+  },
+  {
+    "question": "The management team notices that new accounts that are set up manually do not always have correct access or permissions.\nWhich of the following automation techniques should a systems administrator use to streamline account creation?",
+    "options": ["Guard rail script", "Ticketing workflow", "Escalation script", "User provisioning script"],
+    "correctAnswer": 3,
+    "explanation": "A user provisioning script is an automated script specifically designed to handle the creation, modification, and deletion of user accounts. Using a script ensures that every new account is created consistently with the correct permissions, group memberships, and settings based on the user's role, eliminating the manual errors and inconsistencies described in the scenario."
+  },
+  {
+    "question": "Which of the following security control types does an acceptable use policy best represent?",
+    "options": ["Detective", "Compensating", "Corrective", "Preventive"],
+    "correctAnswer": 3,
+    "explanation": "An Acceptable Use Policy (AUP) is an administrative control that sets rules for user behavior before an incident occurs. Its purpose is to stop users from performing actions that could introduce security risks. Because it is designed to prevent incidents from happening in the first place, it is a preventive control."
+  },
+  {
+    "question": "A penetration tester begins an engagement by performing port and service scans against the client environment according to the rules of engagement. Which of the following reconnaissance types is the tester performing?",
+    "options": ["Active", "Passive", "Defensive", "Offensive"],
+    "correctAnswer": 0,
+    "explanation": "Active reconnaissance involves directly interacting with the target to gather information. Port scanning and service scanning require sending packets to the target systems and analyzing the responses. This direct interaction distinguishes it from passive reconnaissance, which involves gathering information from publicly available sources without touching the target's systems."
+  },
+  {
+    "question": "After a recent ransomware attack on a company's system, an administrator reviewed the log files. Which of the following control types did the administrator use?",
+    "options": ["Compensating", "Detective", "Preventive", "Corrective"],
+    "correctAnswer": 1,
+    "explanation": "Log files are a prime example of a detective control. They do not prevent an attack from happening or correct the damage afterward. Instead, they record events as they occur, allowing an administrator to detect that an incident happened and investigate the details (like the source, timeline, and scope of the attack) after the fact."
+  }
+];
