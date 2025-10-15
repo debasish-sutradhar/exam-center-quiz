@@ -1,0 +1,18 @@
+# Paste your questions here
+# The pipeline supports two formats:
+
+# Classic format example:
+# Question: What is the capital of France?
+# 1) London
+# 2) Berlin
+# 3) Paris
+# 4) Madrid
+# Answer: 3
+# Explanation: Paris is the capital and largest city of France.
+
+# Compact format example:
+# Q: What does CPU stand for? | A: Central Processing Unit, B: Computer Personal Unit, C: Central Program Utility, D: Computer Processing Unit | Correct: A | Exp: CPU stands for Central Processing Unit.
+
+# Delete these comments and paste your questions below.
+# Separate questions with blank lines.
+# The import will automatically detect and skip duplicates.
