@@ -28,7 +28,12 @@ jobs:
         id: check-pasted
         run: |
           if [ -f pasted.txt ] && [ -s pasted.txt ]; then
-            echo "has_content=true" >> $GITHUB_OUTPUT
+            # Check if file has non-comment, non-empty lines
+            if grep -qv '^[[:space:]]*\(#\|$\)' pasted.txt; then
+              echo "has_content=true" >> $GITHUB_OUTPUT
+            else
+              echo "has_content=false" >> $GITHUB_OUTPUT
+            fi
           else
             echo "has_content=false" >> $GITHUB_OUTPUT
           fi
