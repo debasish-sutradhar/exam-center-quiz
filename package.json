@@ -1,0 +1,13 @@
+{
+  "name": "exam-center-quiz",
+  "version": "1.0.0",
+  "description": "Quiz application with automated question import pipeline",
+  "scripts": {
+    "import-pasted": "node tools/merge-pasted-into-questions.js",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": ["quiz", "exam", "questions"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {}
+}
