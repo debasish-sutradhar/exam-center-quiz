@@ -613,3 +613,5 @@ const quizQuestions = [
   {
     "question": "An administrator was notified that a user logged in remotely after hours and copied large amounts of data to a personal device. Which of the following best describes the user's activity?",
     "options": ["Penetration testing", "Phishing campaign", "External audit",
+                  }
+];
