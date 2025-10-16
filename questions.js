@@ -364,6 +364,36 @@ const quizQuestions = [
     "options": ["Compensating", "Detective", "Preventive", "Corrective"],
     "correctAnswer": 1,
     "explanation": "Log files are a prime example of a detective control. They do not prevent an attack from happening or correct the damage afterward. Instead, they record events as they occur, allowing an administrator to detect that an incident happened and investigate the details (like the source, timeline, and scope of the attack) after the fact."
+  },
+  {
+    "question": "A company is implementing a new BYOD policy that requires employees to use their personal devices for work. Which of the following security controls should be implemented FIRST?",
+    "options": ["MDM solution", "Application whitelisting", "Full disk encryption", "Remote wipe capability"],
+    "correctAnswer": 0,
+    "explanation": "Mobile Device Management (MDM) is the foundational control for BYOD environments. It provides the infrastructure to enforce security policies, manage device configurations, and enable other security features like encryption and remote wipe across personal devices used for work."
+  },
+  {
+    "question": "A security analyst discovers that an attacker has been using stolen session cookies to access user accounts. Which of the following would BEST prevent this type of attack?",
+    "options": ["Implementing CAPTCHA on login pages", "Enabling multi-factor authentication", "Binding sessions to IP addresses", "Using short session timeout values"],
+    "correctAnswer": 2,
+    "explanation": "Binding sessions to IP addresses ensures that session cookies can only be used from the same IP address where they were originally created. This prevents an attacker who steals a session cookie from using it from a different location, effectively mitigating session hijacking attacks."
+  },
+  {
+    "question": "An organization wants to ensure that data on decommissioned hard drives cannot be recovered. Which of the following methods provides the HIGHEST level of assurance?",
+    "options": ["Degaussing", "Physical destruction", "Secure erase", "Overwriting with random data"],
+    "correctAnswer": 1,
+    "explanation": "Physical destruction (shredding, crushing, or incinerating) of storage media provides the highest level of assurance that data cannot be recovered. While degaussing and secure erase are effective, physical destruction eliminates any possibility of data recovery, making it the most secure disposal method for highly sensitive data."
+  },
+  {
+    "question": "Which of the following BEST describes the concept of defense in depth?",
+    "options": ["Using the strongest encryption available", "Implementing multiple layers of security controls", "Conducting regular security audits", "Training employees on security best practices"],
+    "correctAnswer": 1,
+    "explanation": "Defense in depth is a security strategy that employs multiple layers of security controls throughout an IT system. If one control fails, others are in place to prevent or mitigate an attack. This layered approach provides redundancy and increases the overall security posture by not relying on a single point of defense."
+  },
+  {
+    "question": "A company needs to securely share sensitive documents with external partners. Which of the following solutions would be MOST appropriate?",
+    "options": ["Email with password-protected ZIP files", "Encrypted file sharing portal with access controls", "USB drives with BitLocker encryption", "Cloud storage with link sharing"],
+    "correctAnswer": 1,
+    "explanation": "An encrypted file sharing portal with access controls provides the most secure and manageable solution for sharing sensitive documents with external partners. It offers encryption in transit and at rest, granular access controls, audit trails, and the ability to revoke access when needed, making it more secure than ad-hoc solutions like email or simple link sharing."
   }
 ];
 
